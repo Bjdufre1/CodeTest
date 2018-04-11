@@ -20,7 +20,7 @@ public class ZipfsSongProblem {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int numberOfSongs = input.nextInt();
+        long numberOfSongs = input.nextInt();
         int numberToSelect = input.nextInt();
         int currentNumberOfPlays, firstSongPlays = 0;
         double qi, expectedPlays;
