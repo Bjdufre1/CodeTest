@@ -20,14 +20,15 @@ public class ZipfsSongProblem {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        long numberOfSongs = input.nextInt();
+        int numberOfSongs = input.nextInt();
         int numberToSelect = input.nextInt();
-        int currentNumberOfPlays, firstSongPlays = 0;
+        long currentNumberOfPlays;
+        long firstSongPlays = 0;
         double qi, expectedPlays;
         ArrayList<Song> songArrayList = new ArrayList<>();
         String songName;
         for(int i = 1; i <= numberOfSongs; i++){
-            currentNumberOfPlays = input.nextInt();
+            currentNumberOfPlays = input.nextLong();
             //If the song is the first one, save the value for computing qi values later
             if(i == 1){
                 firstSongPlays = currentNumberOfPlays;
@@ -36,7 +37,7 @@ public class ZipfsSongProblem {
             //Taking the number of plays on the first song and multiplying it by Zipf's Law number
             expectedPlays = firstSongPlays * ((double)1/i);
             //Calculating the qi value using Zipf's Law
-            qi = ((double)currentNumberOfPlays)/expectedPlays;
+            qi = (currentNumberOfPlays)/expectedPlays;
             songArrayList.add(new Song(songName, qi));
         }
         //Sorting the ArrayList using the overridden compareTo method to compare by qi value
